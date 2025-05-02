@@ -15,10 +15,8 @@ Ini adalah website portofolio pribadi dari **Muhammad Novian Pratama Wijaya**, s
 
 ```
 .
-├── index.html      # Struktur utama halaman
-├── style (inline)  # Desain langsung dalam file HTML
-├── Three.js CDN    # Efek animasi latar belakang
-└── README.md       # Dokumentasi proyek
+├── index.html      
+└── README.md       
 ```
 
 ## 🚀 Cara Menjalankan
