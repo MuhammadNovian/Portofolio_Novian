@@ -1,136 +1,124 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Muhammad Novian Pratama Wijaya | Frontend Developer</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muhammad Novian Pratama Wijaya | Frontend Developer & Web Designer</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Portofolio Muhammad Novian Pratama Wijaya — Front End Developer & Web Designer yang fokus pada pembuatan website responsif, modern, dan user-friendly.">
+  <meta name="keywords" content="Frontend Developer, Web Designer, HTML, CSS, JavaScript, Portfolio, UI/UX, Website Developer Indonesia">
+  <meta name="author" content="Muhammad Novian Pratama Wijaya">
+  <meta property="og:title" content="Muhammad Novian Pratama Wijaya | Frontend Developer">
+  <meta property="og:description" content="Clean, responsive, and engaging web development portfolio by Muhammad Novian Pratama Wijaya.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="thumbnail.png">
+  <meta property="og:url" content="https://muhammadnovianportfolio.com">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body,html{width:100%;height:100%;font-family:'Segoe UI',sans-serif;background:#1d1f21;color:#fff;overflow-x:hidden;position:relative}
+    canvas{position:fixed;top:0;left:0;z-index:0}
 
-    body, html {
-      width: 100%;
-      height: 100%;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #1d1f21;
-      color: white;
-      overflow: hidden;
-      position: relative;
+    header,.skills-section,.contact-section,footer{position:relative;z-index:2}
+    header{display:flex;justify-content:space-between;align-items:center;padding:30px 50px}
+    .right-icons a{color:#fff;margin-left:20px;font-size:20px;transition:color .3s}
+    .right-icons a:hover{color:#00ffcc}
+
+    .language-toggle{background:#2a2d30;color:#00ffcc;border:1px solid #00ffcc;border-radius:20px;padding:6px 14px;cursor:pointer;font-size:13px;transition:all .3s}
+    .language-toggle:hover{background:#00ffcc;color:#1d1f21;transform:translateY(-2px)}
+
+    /* HERO */
+    .hero-section{display:flex;justify-content:space-between;align-items:center;padding:100px 50px 60px;flex-wrap:wrap;z-index:2}
+    .hero-left{max-width:55%}
+    .hero-left h1{font-size:58px;margin-bottom:25px}
+    .hero-left p{font-size:16px;line-height:1.8;margin-bottom:10px;border-left:3px solid #00ffcc;padding-left:15px;color:#ccc}
+    .hero-right {flex: 1;display: flex;justify-content: center;align-items: center;}
+    .profile-photo img{width:260px;height:260px;border-radius:50%;border:3px solid #00ffcc;box-shadow:0 0 25px rgba(0,255,204,.4);object-fit:cover;animation:floatProfile 4s ease-in-out infinite;transition:transform .4s,box-shadow .4s}
+    .profile-photo img:hover{transform:scale(1.05);box-shadow:0 0 40px rgba(0,255,204,.6)}
+    @keyframes floatProfile{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+    /* anims */
+    .fade-in-left{opacity:0;transform:translateX(-40px);animation:fadeInLeft 1s forwards}
+    .fade-in-right{opacity:0;transform:translateX(40px);animation:fadeInRight 1s forwards}
+    .fade-in-up{opacity:0;transform:translateY(30px);animation:fadeInUp 1s forwards}
+    .delay-1{animation-delay:.3s}.delay-2{animation-delay:.6s}
+    @keyframes fadeInLeft{to{opacity:1;transform:translateX(0)}}@keyframes fadeInRight{to{opacity:1;transform:translateX(0)}}@keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
+
+    /* projects */
+    .projects-section{padding:40px 50px;z-index:2}
+    .projects-section h2{font-size:28px;margin-bottom:20px}
+    .projects{display:flex;flex-direction:column;gap:15px}
+    .projects a{text-decoration:none;color:#00ffcc;border-left:3px solid #00ffcc;padding-left:10px;transition:all .3s;position:relative}
+    .projects a:hover{color:#fff;border-left-color:#fff;transform:translateX(5px)}
+    .projects a::after{content:"Live View";position:absolute;right:-90px;top:0;background:#00ffcc;color:#1d1f21;font-size:11px;padding:2px 8px;border-radius:10px;opacity:0;transform:translateY(-50%);transition:.3s}
+    .projects a:hover::after{opacity:1;right:-75px}
+
+    /* skills */
+    .skills-section{margin-top:100px;text-align:center;padding:50px 20px}
+    .skills-section h2{font-size:28px;margin-bottom:30px}
+    .skills-container{display:flex;flex-wrap:wrap;justify-content:center;gap:40px}
+    .skill{text-align:center;transition:transform .3s}
+    .skill i{font-size:50px;color:#00ffcc;transition:all .4s;animation:float 3s ease-in-out infinite}
+    .skill:hover i{color:#fff;transform:scale(1.2) rotate(5deg)}
+    .skill p{margin-top:10px;font-size:14px}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+    /* contact */
+    .contact-section{text-align:center;padding:80px 20px 120px}
+    .contact-section h2{font-size:28px;margin-bottom:20px}.contact-section p{margin-bottom:30px;color:#ccc}
+    form{max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:15px}
+    input,textarea{background:#2a2d30;border:1px solid #00ffcc;border-radius:6px;padding:12px;color:#fff;font-size:14px;transition:border-color .3s}
+    input:focus,textarea:focus{border-color:#fff;outline:none}
+    textarea{resize:none;height:120px}
+    button{background:#00ffcc;border:none;padding:12px;border-radius:6px;color:#1d1f21;font-weight:700;font-size:14px;cursor:pointer;transition:all .3s}
+    button:hover{background:#fff;transform:translateY(-3px)}
+
+    footer{position:fixed;right:10px;bottom:10px;font-size:10px;font-weight:700}
+
+    /* modal */
+    .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);justify-content:center;align-items:center;z-index:999;animation:fadeIn .4s}
+    .modal-content{width:80%;height:80%;background:rgba(29,31,33,.95);border:1px solid #00ffcc;border-radius:20px;overflow:hidden;box-shadow:0 0 30px rgba(0,255,204,.3);position:relative;animation:scaleUp .3s}
+    .modal-content iframe{width:100%;height:100%;border:none}
+    .close-btn{position:absolute;top:8px;right:16px;font-size:26px;color:#00ffcc;cursor:pointer;z-index:10;transition:.3s}
+    .close-btn:hover{color:#fff;transform:scale(1.2)}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes scaleUp{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+
+    @media (max-width:992px){
+      .hero-section{flex-direction:column;text-align:center}
+      .hero-left,.hero-right{max-width:100%}
+      .hero-left h1{font-size:42px}
+      .profile-photo img{width:180px;height:180px}
+      .projects a::after{display:none}
     }
 
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
+    @media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    header, .container, footer {
-      position: relative;
-      z-index: 2;
-    }
+  .hero-left, .hero-right {
+    max-width: 100%;
+  }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 30px 50px;
-    }
+  .hero-right {
+    order: 2;
+    margin-top: 1.5rem;
+    justify-content: center;
+  }
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-    }
+  .hero-left {
+    order: 1;
+  }
 
-    .icons a {
-      color: #fff;
-      margin-left: 20px;
-      font-size: 20px;
-      transition: color 0.3s;
-    }
-
-    .icons a:hover {
-      color: #00ffcc;
-    }
-
-    .container {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 50px;
-    }
-
-    .left {
-      max-width: 55%;
-      margin-top: 80px;
-    }
-
-    .left h1 {
-      font-size: 60px;
-      margin-bottom: 20px;
-    }
-
-    .left p {
-      font-size: 16px;
-      line-height: 1.8;
-      margin-bottom: 10px;
-      border-left: 3px solid #00ffcc;
-      padding-left: 15px;
-    }
-
-    .right {
-      margin-top: 100px;
-      max-width: 35%;
-    }
-
-    .right h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
-    .projects {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .projects a {
-      text-decoration: none;
-      color: #00ffcc;
-      border-left: 3px solid #00ffcc;
-      padding-left: 10px;
-      transition: 0.3s;
-    }
-
-    .projects a:hover {
-      color: #fff;
-      border-left-color: #fff;
-    }
-
-    header {
-  display: flex;
-  justify-content: flex-end; /* membuat ikon rata kanan */
-  align-items: center;
-  padding: 30px 50px;
+  .profile-photo img {
+    width: 180px;
+    height: 180px;
+  }
 }
-
-.right-icons a {
-  color: #fff;
-  margin-left: 20px;
-  font-size: 20px;
-  transition: color 0.3s;
-}
-
-.right-icons a:hover {
-  color: #00ffcc;
-}
-
-    footer {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      font-size: 10px;
-      font-weight: 700;
-    }
   </style>
 </head>
 <body>
@@ -138,98 +126,270 @@
 <canvas id="bgCanvas"></canvas>
 
 <header>
-  <div class="icons right-icons">
+  <button id="langToggle" class="language-toggle">🇮🇩 ID</button>
+  <div class="right-icons">
     <a href="mailto:muhammadnovian3s@gmail.com"><i class="fas fa-envelope"></i></a>
     <a href="https://wa.me/6285182917552" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <a href="https://linkedin.com/in/muhammadnovianwijaya" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
 </header>
 
-<div class="container">
-  <div class="left">
-    <h1>Welcome.</h1>
-    <p>My name is Muhammad Novian Pratama Wijaya, I am a front end web developer and web designer.</p>
-    <p>I typically build clean, responsive, and engaging websites that not only look great but also provide a seamless user experience across all devices.</p>
-    <p>With a strong foundation in HTML, CSS, and JavaScript, I bring ideas to life by transforming them into functional and user-friendly websites. I also enjoy working on the design side, ensuring that every project has a visually appealing layout that aligns with the client's vision and brand identity</p>
+<div class="hero-section">
+  <div class="hero-left">
+    <h1 id="heroTitle" class="fade-in-left">Membangun Website yang Indah dan Interaktif.</h1>
+    <p id="heroP1" class="fade-in-left delay-1">Saya Muhammad Novian Pratama Wijaya — seorang front-end developer dan web designer yang berfokus pada pembuatan website cepat, responsif, dan menarik.</p>
+    <p id="heroP2" class="fade-in-left delay-2">Saya menggabungkan keahlian teknis dan desain untuk menghadirkan pengalaman pengguna yang nyaman dan estetis menggunakan HTML, CSS, JavaScript, dan React.</p>
   </div>
-  <div class="right">
-    <h2>Projects</h2>
-    <div class="projects">
-      <a href="projects/wedding-invitation.html">Wedding Invitation Web</a>
-      <a href="projects/original-tech.html">Orichginal Tech Landing Page</a>
-      <a href="projects/quiz-app.html">Quiz Web App</a>
+
+  <div class="hero-right fade-in-right">
+    <div class="profile-photo">
+      <img src="projects/img/Foto profil pro-novian.jpg" alt="Muhammad Novian Pratama Wijaya">
     </div>
   </div>
 </div>
 
-<footer>
-  &copy; 2025 Muhammad Novian | Front End Developer & Web Designer.
-</footer>
+<div class="projects-section fade-in-up">
+  <h2 id="projectsTitle">Proyek</h2>
+  <div class="projects">
+    <a href="projects/sales-bi-dashboard.html">Sales BI Dashboard</a>
+    <a href="projects/wedding-invitation.html">Wedding Invitation Web</a>
+    <a href="projects/original-tech.html">Orichginal Tech Landing Page</a>
+    <a href="projects/quiz-app.html">Quiz Web App</a>
+  </div>
+</div>
 
-<!-- Three.js CDN -->
+<section class="skills-section">
+  <h2 id="skillsTitle">Keahlian</h2>
+  <div class="skills-container">
+    <div class="skill"><i class="fab fa-html5"></i><p>HTML5</p></div>
+    <div class="skill"><i class="fab fa-css3-alt"></i><p>CSS3</p></div>
+    <div class="skill"><i class="fab fa-js"></i><p>JavaScript</p></div>
+    <div class="skill"><i class="fab fa-react"></i><p>React</p></div>
+    <div class="skill"><i class="fab fa-node-js"></i><p>Node.js</p></div>
+    <div class="skill"><i class="fab fa-git-alt"></i><p>Git</p></div>
+    <div class="skill"><i class="fab fa-figma"></i><p>Figma</p></div>
+  </div>
+</section>
+
+<section class="contact-section">
+  <h2 id="contactTitle">Hubungi Saya</h2>
+  <p id="contactDesc">Punya proyek atau kolaborasi? Yuk ngobrol!</p>
+  <form id="contactForm">
+    <input type="text" name="user_name" placeholder="Nama Anda" required>
+    <input type="email" name="user_email" placeholder="Email Anda" required>
+    <textarea name="message" placeholder="Pesan Anda" required></textarea>
+    <button type="submit" id="sendBtn">Kirim Pesan</button>
+  </form>
+</section>
+
+<div id="previewModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <iframe id="previewFrame" src="" frameborder="0"></iframe>
+  </div>
+</div>
+
+<footer>&copy; 2025 Muhammad Novian | Front End Developer & Web Designer.</footer>
+
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-  const canvas = document.getElementById('bgCanvas');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.position.z = 2;
-
-  // Line Material
-  const material = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.2 });
-
-  // Wave lines group
-  const lines = new THREE.Group();
-  scene.add(lines);
-
-  const numLines = 20;
-  const pointsPerLine = 100;
-  const spacing = 1;
-
-  const lineMeshes = [];
-
-  for (let j = 0; j < numLines; j++) {
-    const points = [];
-    for (let i = 0; i < pointsPerLine; i++) {
-      const x = (i - pointsPerLine / 2) * 0.3;
-      const y = Math.sin(i * 0.2) * 0.5;
-      points.push(new THREE.Vector3(x, y, j * 0.5));
-    }
-    const geometry = new THREE.BufferGeometry().setFromPoints(points);
-    const line = new THREE.Line(geometry, material.clone());
-    lineMeshes.push({ line, baseZ: j * 0.5 });
-    lines.add(line);
+/* ===== Robust bilingual handling (includes input placeholders) ===== */
+const langData = {
+  id: {
+    heroTitle: "Membangun Website yang Indah dan Interaktif.",
+    heroP1: "Saya Muhammad Novian Pratama Wijaya — seorang front-end developer dan web designer yang berfokus pada pembuatan website cepat, responsif, dan menarik.",
+    heroP2: "Saya menggabungkan keahlian teknis dan desain untuk menghadirkan pengalaman pengguna yang nyaman dan estetis menggunakan HTML, CSS, JavaScript, dan React.",
+    projectsTitle: "Proyek",
+    skillsTitle: "Keahlian",
+    contactTitle: "Hubungi Saya",
+    contactDesc: "Punya proyek atau kolaborasi? Yuk ngobrol!",
+    sendBtn: "Kirim Pesan",
+    phName: "Nama Anda",
+    phEmail: "Email Anda",
+    phMessage: "Pesan Anda"
+  },
+  en: {
+    heroTitle: "Develop Beautiful and Interactive Websites.",
+    heroP1: "I’m Muhammad Novian Pratama Wijaya — a front-end developer and web designer focused on building fast, responsive, and visually appealing websites.",
+    heroP2: "I combine technical skills and design sensibility to deliver seamless and aesthetic user experiences using HTML, CSS, JavaScript, and React.",
+    projectsTitle: "Projects",
+    skillsTitle: "Skills",
+    contactTitle: "Contact Me",
+    contactDesc: "Have a project or collaboration? Let’s get in touch!",
+    sendBtn: "Send Message",
+    phName: "Your Name",
+    phEmail: "Your Email",
+    phMessage: "Your Message"
   }
+};
 
-  // Animation
-  function animate(time) {
-    requestAnimationFrame(animate);
+const toggle = document.getElementById('langToggle');
+let currentLang = localStorage.getItem('lang') || (navigator.language && navigator.language.startsWith('en') ? 'en' : 'id');
 
-    lineMeshes.forEach(({ line, baseZ }, index) => {
-      const positions = line.geometry.attributes.position.array;
-      for (let i = 0; i < pointsPerLine; i++) {
-        const x = (i - pointsPerLine / 2) * 0.3;
-        const y = Math.sin(i * 0.2 + time * 0.001 + index) * 0.5;
-        const idx = i * 3;
-        positions[idx] = x;
-        positions[idx + 1] = y;
-        // Z tetap, biarkan sebagai kedalaman
+function setLang(lang) {
+  const data = langData[lang] || langData.id;
+  // set text content for known element IDs (safe: check existence)
+  Object.keys(data).forEach(key => {
+    const val = data[key];
+    const el = document.getElementById(key);
+    if (el) {
+      el.textContent = val;
+    } else {
+      // handle placeholders explicitly
+      if (key === 'phName') {
+        const nameInput = document.querySelector('input[name="user_name"]');
+        if (nameInput) nameInput.placeholder = val;
       }
-      line.geometry.attributes.position.needsUpdate = true;
-    });
+      if (key === 'phEmail') {
+        const emailInput = document.querySelector('input[name="user_email"]');
+        if (emailInput) emailInput.placeholder = val;
+      }
+      if (key === 'phMessage') {
+        const msg = document.querySelector('textarea[name="message"]');
+        if (msg) msg.placeholder = val;
+      }
+      // sendBtn fallback (if button doesn't have id textContent set above)
+      if (key === 'sendBtn') {
+        const send = document.getElementById('sendBtn');
+        if (send) send.textContent = val;
+      }
+    }
+  });
 
-    renderer.render(scene, camera);
+  // toggle label
+  toggle.textContent = lang === 'id' ? '🇮🇩 ID' : '🇬🇧 EN';
+  localStorage.setItem('lang', lang);
+  currentLang = lang;
+}
+
+// initialize language on load
+setLang(currentLang);
+
+// toggle action
+toggle.addEventListener('click', () => {
+  const next = currentLang === 'id' ? 'en' : 'id';
+  setLang(next);
+});
+
+/* ===== Modal preview (Live View) ===== */
+const modal = document.getElementById('previewModal');
+const iframe = document.getElementById('previewFrame');
+const closeBtn = document.querySelector('.close-btn');
+
+document.querySelectorAll('.projects a').forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    const href = a.href;
+    // open iframe preview
+    iframe.src = href;
+    modal.style.display = 'flex';
+  });
+});
+
+closeBtn.addEventListener('click', () => { modal.style.display = 'none'; iframe.src = ''; });
+modal.addEventListener('click', e => { if (e.target === modal) { modal.style.display = 'none'; iframe.src = ''; } });
+
+<!-- === EmailJS CDN === -->
+src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+
+  // 🔹 Inisialisasi EmailJS
+  emailjs.init("yUanGjyfXBx_9ou9t");
+
+  // 🔹 Ambil elemen form & tombol kirim
+  const form = document.getElementById("contactForm");
+  const sendBtn = document.getElementById("sendBtn");
+
+  if (form && sendBtn) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // disable tombol sementara
+      sendBtn.disabled = true;
+      const oldText = sendBtn.textContent;
+      sendBtn.textContent =
+        localStorage.getItem("lang") === "en" ? "Sending..." : "Mengirim...";
+
+      // 🔹 Kirim form pakai EmailJS
+      emailjs
+        .sendForm("service_taaigvb", "template_ano6wle", form)
+        .then(() => {
+          alert(
+            localStorage.getItem("lang") === "en"
+              ? "✅ Message sent successfully!"
+              : "✅ Pesan berhasil dikirim!"
+          );
+          form.reset();
+        })
+        .catch((err) => {
+          console.error("EmailJS Error:", err);
+          alert(
+            localStorage.getItem("lang") === "en"
+              ? "❌ Failed to send message. Try again later."
+              : "❌ Gagal mengirim pesan. Coba lagi nanti."
+          );
+        })
+        .finally(() => {
+          sendBtn.disabled = false;
+          sendBtn.textContent = oldText;
+        });
+    });
+  } else {
+    console.warn("Contact form or send button not found in HTML.");
   }
 
-  animate();
 
-  window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+/* ===== Background Three.js animation ===== */
+const canvas = document.getElementById('bgCanvas');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+camera.position.z = 2;
+
+const material = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.18 });
+const lines = new THREE.Group();
+scene.add(lines);
+
+const numLines = 20, pointsPerLine = 100;
+const lineMeshes = [];
+
+for (let j=0;j<numLines;j++){
+  const points = [];
+  for (let i=0;i<pointsPerLine;i++){
+    const x = (i - pointsPerLine/2) * 0.3;
+    const y = Math.sin(i * 0.2) * 0.5;
+    points.push(new THREE.Vector3(x,y,j*0.5));
+  }
+  const geo = new THREE.BufferGeometry().setFromPoints(points);
+  const line = new THREE.Line(geo, material.clone());
+  lineMeshes.push(line);
+  lines.add(line);
+}
+
+function animate(time){
+  requestAnimationFrame(animate);
+  lineMeshes.forEach((line, index) => {
+    const positions = line.geometry.attributes.position.array;
+    for (let i=0;i<pointsPerLine;i++){
+      const x = (i - pointsPerLine/2) * 0.3;
+      const y = Math.sin(i * 0.2 + time * 0.001 + index) * 0.5;
+      const idx = i * 3;
+      positions[idx] = x;
+      positions[idx+1] = y;
+    }
+    line.geometry.attributes.position.needsUpdate = true;
   });
-</script>
+  renderer.render(scene, camera);
+}
+animate();
 
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>
 </body>
 </html>
