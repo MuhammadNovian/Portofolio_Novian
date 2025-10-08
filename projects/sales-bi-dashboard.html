@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales BI Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1d1f21;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .container { max-width: 900px; width: 90%; margin: 20px auto; }
+    h1 { font-size: 2rem; margin-bottom: 20px; color: #00ffcc; }
+    img { width: 100%; max-width: 800px; border-radius: 10px; margin-bottom: 20px; }
+    p { color: #ccc; line-height: 1.6; margin-bottom: 20px; font-size: 1rem; }
+    a { display: inline-block; padding: 10px 20px; background: #00ffcc; color: #1d1f21;
+        border-radius: 5px; text-decoration: none; font-weight: bold; transition: .3s; }
+    a:hover { background: #fff; color: #00ffcc; }
+    @media(max-width:600px){h1{font-size:1.5rem}p{font-size:0.95rem}a{padding:8px 16px;font-size:0.9rem}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="projTitle">Sales BI Dashboard</h1>
+    <a href="https://sales-bi-dashboard.vercel.app/">
+      <img src="img/Thumbnailsales-bi-dashboard.png" alt="Preview Website">
+    </a>
+    <p id="projDesc">
+      Sales BI Dashboard adalah aplikasi web interaktif berbasis React dan Vite yang dirancang untuk menampilkan analisis penjualan secara visual dan dinamis. Dashboard ini menampilkan berbagai grafik seperti Monthly Revenue Trend, Revenue by Product, Revenue by Region, Quantity Sold, Stacked Bar Chart (Revenue per Product per Region), serta Donut Chart (Revenue Share by Product). Semua data dapat dihasilkan secara otomatis atau diunggah melalui file Excel/CSV, lalu divisualisasikan secara real-time menggunakan Recharts. Aplikasi ini juga dilengkapi fitur Dark/Light Mode, ekspor data ke format CSV maupun PDF, serta desain responsif yang cocok digunakan untuk presentasi data bisnis dan portofolio profesional.
+    </p>
+    <a id="projLink" href="https://sales-bi-dashboard.vercel.app/">🔗 Lihat Website</a>
+  </div>
+
+  <script>
+    const langData = {
+      id: {
+        projTitle: "Sales BI Dashboard",
+        projDesc: "Sales BI Dashboard adalah aplikasi web interaktif berbasis React dan Vite yang dirancang untuk menampilkan analisis penjualan secara visual dan dinamis. Dashboard ini menampilkan berbagai grafik seperti tren pendapatan bulanan, penjualan per produk, dan wilayah, dengan data real-time dan fitur ekspor CSV/PDF.",
+        projLink: "🔗 Lihat Website"
+      },
+      en: {
+        projTitle: "Sales BI Dashboard",
+        projDesc: "Sales BI Dashboard is an interactive web app built with React and Vite, designed to visualize sales data dynamically with real-time charts and export features for CSV/PDF. It includes monthly revenue trends, product and regional insights, and a fully responsive interface.",
+        projLink: "🔗 View Website"
+      }
+    };
+
+    const lang = localStorage.getItem("lang") || "id";
+    const t = langData[lang];
+    document.getElementById("projTitle").textContent = t.projTitle;
+    document.getElementById("projDesc").textContent = t.projDesc;
+    document.getElementById("projLink").textContent = t.projLink;
+  </script>
+</body>
+</html>
